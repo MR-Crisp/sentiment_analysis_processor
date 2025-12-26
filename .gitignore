@@ -7,3 +7,9 @@
 /dataSources/
 /dataSources.local.xml
 .idea/
+.venv/
+*.csv
+*.txt
+.ipynb_checkpoints/
+.jupyter
+*.joblib
