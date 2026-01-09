@@ -13,3 +13,5 @@
 .ipynb_checkpoints/
 .jupyter
 *.joblib
+__pycache__/
+*.py[cod]
