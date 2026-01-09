@@ -1,10 +1,16 @@
 
 import joblib
 import numpy as np
+import os
 
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "sentiment_svm_model.joblib")
+VECTORIZER_PATH = os.path.join(BASE_DIR, "tfidf_vectorizer.joblib")
 # Load
-model = joblib.load("sentiment_svm_model.joblib")
-vectorizer = joblib.load("tfidf_vectorizer.joblib")
+model = joblib.load(MODEL_PATH)
+vectorizer = joblib.load(VECTORIZER_PATH)
 
 def predict(text: str) -> dict:
     # transform the text
@@ -18,6 +24,4 @@ def predict(text: str) -> dict:
         sentiment = "Positive"
     return sentiment, confidence
 
-if __name__ == "__main__":
-    print(predict("I am so Happy"))
-    print(predict("This is the worst experience ever"))
+
