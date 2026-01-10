@@ -14,7 +14,7 @@ class SentimentResponse(BaseModel):
 app = FastAPI()
 @app.get("/")
 def root():
-    return {"message": "Hello World"}
+    return {"message": "This is my Api for the sentiment analysis"}
 @app.post("/model", response_model=SentimentResponse)
 def calculateSentiment(request: SentimentRequest):
     text = request.text
