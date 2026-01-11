@@ -12,7 +12,7 @@ In this phase, we plan to create the basic logic for the model. We will train th
 
 # Phase 2
 
-In this phase we plan to build a speach to text module, by connecting a microphoe, and running speach recognition, then running it through the senitment analysis. For this section I want to use my arduino uno to act as an actuator to make it possible. In addtion to that In this section I will also Aim to add a front end to connect to the API
+In this phase we plan to build a speach to text module, by connecting a microphoe, and running speach recognition, then running it through the senitment analysis. I also intend on building the microphone from cratch using cuircuits and components if given enough time. For this section I want to use my arduino uno to act as an actuator to make it possible. In addtion to that In this section I will also Aim to add a front end to connect to the API, this will most likely be Done in react. 
 
 # Phase 3
 
