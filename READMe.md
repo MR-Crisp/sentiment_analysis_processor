@@ -96,4 +96,4 @@ In this phase we will improve the basic model, trying to make it more accurate, 
 - **FastAPI** - Web framework for building APIs
 - **scikit-learn** - Machine learning library (Linear SVC)
 - **Docker** - Containerization
-
+   
