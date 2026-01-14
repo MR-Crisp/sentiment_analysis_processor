@@ -12,9 +12,7 @@ function SentimentAnalyser() {
     />
                 <button type="submit">Submit</button>
             </form>
-            <footer>
-                <p>Developed by Aamir Amin</p>
-            </footer>
+
         </>
 
     );
