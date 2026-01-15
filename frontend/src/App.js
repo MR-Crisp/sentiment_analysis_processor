@@ -10,6 +10,7 @@ function App() {
                 <p>Analyse the sentiment of any text using my rudimentary model</p>
             </header>
             <SentimentAnalyser />
+
             <footer>
                 <p className="footer-line">Developed by Aamir Amin</p>
             </footer>
