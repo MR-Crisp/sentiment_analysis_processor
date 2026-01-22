@@ -1,36 +1,43 @@
 # Sentiment Analysis Processor
 
-Aim of this project is to try and use machine learning to do sentiment analysis on different phrases. 
+A full-stack machine learning application that analyzes the sentiment of text using a trained Linear SVC model. Features a FastAPI backend and React frontend, fully containerized with Docker.
 
 ## Features
 
-- FastAPI-based REST API for sentiment analysis
-- Linear SVC (Support Vector Classifier) machine learning model
-- TF-IDF vectorization for text processing
-- Docker support for easy deployment
-- Trained on Twitter tweets dataset
+- **Machine Learning Model**: Linear SVC (Support Vector Classifier) with TF-IDF vectorization
+- **REST API**: FastAPI-based backend with automatic interactive documentation
+- **Interactive UI**: React-based frontend with real-time sentiment analysis
+- **Containerized**: Complete Docker Compose setup for one-command deployment
+- **Production Ready**: Nginx-served frontend, optimized build process
+- **Trained on Twitter Dataset**: Model trained on real-world social media data
 
-## Quick Start with Docker
+## Quick Start with Docker Compose (Recommended)
 
 ### Prerequisites
-- Docker installed on your system
+- Docker and Docker Compose installed on your system
 
-### Running the Application
+### Running the Full Application
 
-1. **Build the Docker image:**
+1. **Clone the repository and navigate to project root:**
    ```bash
-   docker build -t sentiment-analysis .
+   cd sentiment_analysis_processor
    ```
 
-2. **Run the container:**
+2. **Start both frontend and backend:**
    ```bash
-   docker run -p 5000:5000 sentiment-analysis
+   docker-compose up --build
    ```
 
-3. **Access the API:**
-   - API Root: http://localhost:5000
-   - Interactive API docs: http://localhost:5000/docs
-   - Sentiment endpoint: POST to http://localhost:5000/model
+3. **Access the application:**
+   - **Frontend UI**: http://localhost:3000
+   - **Backend API**: http://localhost:5000
+   - **API Documentation**: http://localhost:5000/docs
+
+4. **Stop the application:**
+   ```bash
+   docker-compose down
+   ```
+   Or press `Ctrl+C` if running in foreground
 
 ### Example API Usage
 
@@ -49,51 +56,102 @@ Response:
 }
 ```
 
-## Local Development
+## Project Roadmap
 
-### Prerequisites
-- Python 3.12
-- pip
+### Phase 1: Machine Learning Model Development  (Completed)
 
-### Setup
+Developed and trained a sentiment analysis model using scikit-learn's Linear Support Vector Classifier (SVC) with TF-IDF vectorization. The model was trained on a Twitter dataset containing labeled sentiment data and validated using a separate test dataset. Achieved baseline accuracy for binary sentiment classification (positive/negative).
 
-1. **Create virtual environment:**
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   ```
+**Key Achievements:**
+- Implemented data preprocessing pipeline
+- Trained Linear SVC model with TF-IDF features
+- Model serialization for production deployment
+- Performance evaluation and testing
 
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Phase 2: Full-Stack Application Development  (Completed)
 
-3. **Run the application:**
-   ```bash
-   cd backend
-   uvicorn main:app --reload --port 5000
-   ```
+Built a complete production-ready full-stack application with modern architecture:
 
-## Project Plan
+**Backend:**
+- RESTful API using FastAPI
+- Pydantic models for request/response validation
+- CORS configuration for cross-origin requests
+- Model inference endpoint with confidence scores
+- Interactive API documentation (Swagger UI)
 
-### Phase 1 (Completed)
+**Frontend:**
+- React single-page application
+- Modern UI with London Spitfire theme
+- Real-time sentiment analysis
+- State management with React Hooks
+- Axios for API communication
+- Responsive design with custom CSS
 
-In this phase, we created the basic logic for the model. We trained the model on a dataset that contains Twitter tweets, where the sentiment of each tweet is included for training. Then we used a test dataset to see how accurate the model is. At this phase, we did not worry about double negation and sarcasm as well as advanced literary techniques, but just tried to get a basic prototype working.
+**DevOps:**
+- Complete Docker containerization
+- Docker Compose for multi-container orchestration
+- Nginx for production frontend serving
+- Multi-stage Docker builds for optimization
+- Environment-based configuration
 
-### Phase 2 (In Progress)
+### Phase 3: Advanced Features (Future)
 
-In this phase we plan to build a speech-to-text module, by connecting a microphone and running speech recognition, then running it through the sentiment analysis. I also intend on building the microphone from scratch using circuits and components if given enough time. For this section I want to use my Arduino Uno to act as an actuator to make it possible. In addition to that, in this section I will also aim to add a front end to connect to the API, this will most likely be done in React.
+**Model Enhancements:**
+- Advanced NLP techniques for handling double negatives
+- Sarcasm detection using contextual analysis
+- Improved accuracy with ensemble methods or deep learning
+- Multi-class sentiment (positive, negative, neutral, mixed)
 
-### Phase 3 (Future)
-
-In this phase we will improve the basic model, trying to make it more accurate, now taking into account double negatives and sarcasm. We will also make it so that the speech-to-text analysis considers intonation, tone and other things to help feed the model information to make better judgements.
-
-## Project Structure
 
 ## Technologies Used
 
+### Backend
 - **Python 3.12** - Programming language
-- **FastAPI** - Web framework for building APIs
+- **FastAPI** - Modern web framework for building APIs
 - **scikit-learn** - Machine learning library (Linear SVC)
-- **Docker** - Containerization
-   
+- **TF-IDF** - Text vectorization technique
+- **Pydantic** - Data validation using Python type hints
+- **Uvicorn** - ASGI server for FastAPI
+- **Joblib** - Model serialization
+
+### Frontend
+- **React 18** - JavaScript library for building user interfaces
+- **JavaScript (ES6+)** - Programming language
+- **Node.js & npm** - JavaScript runtime and package manager
+
+
+## Model Information
+
+The sentiment analysis uses a **Linear Support Vector Classifier (SVC)** trained on Twitter data:
+
+- **Algorithm**: Linear SVC (Support Vector Machine for classification)
+- **Vectorization**: TF-IDF (Term Frequency-Inverse Document Frequency)
+- **Output**: Binary sentiment classification (positive/negative)
+- **Confidence Score**: Returns probability estimate for the prediction
+- **Training Data**: Twitter tweets with labeled sentiment
+
+## API Endpoints
+
+### `POST /model`
+Analyzes sentiment of provided text.
+
+**Request Body:**
+```json
+{
+  "text": "Your text to analyze"
+}
+```
+
+**Response:**
+```json
+{
+  "text": "Your text to analyze",
+  "sentiment": "positive",
+  "sentiment_val": 0.85
+}
+```
+
+**Fields:**
+- `text`: The analyzed text
+- `sentiment`: Classification result ("positive" or "negative")
+- `sentiment_val`: Confidence score (0.0 to 1.0)
