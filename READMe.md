@@ -11,6 +11,9 @@ A full-stack machine learning application that analyzes the sentiment of text us
 - **Production Ready**: Nginx-served frontend, optimized build process
 - **Trained on Twitter Dataset**: Model trained on real-world social media data
 
+##Frontend view
+  <img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/62b997ff-a511-4a8f-8c58-1d2ad557f906" />
+
 ## Quick Start with Docker Compose (Recommended)
 
 ### Prerequisites
@@ -38,6 +41,9 @@ A full-stack machine learning application that analyzes the sentiment of text us
    docker-compose down
    ```
    Or press `Ctrl+C` if running in foreground
+
+##Example of Query
+<img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/b627cc1b-0aff-4ea1-8d33-5073c27e5439" />
 
 ### Example API Usage
 
