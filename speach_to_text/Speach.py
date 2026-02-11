@@ -1,22 +1,16 @@
-import sounddevice as sd
-import soundfile as sf
+import torch
+import torchaudio
 
-import whisper
+import time
+from typing import List
 
+import IPython
+import matplotlib.pyplot as plt
+from torchaudio.models.decoder import ctc_decoder
+from torchaudio.utils import _download_asset as download_asset
 
-def record_aduio(seconds):
+bundle = torchaudio.pipelines.WAV2VEC2_ASR_BASE_10M
+acoustic_model = bundle.get_model()
+speech_file = "male.wav"
 
-    fs = 44100
-    print("Recording...")
-    recording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
-    sd.wait()
-
-    sf.write("output3.wav", recording, fs)
-    print("Done.")
-
-def transcribe_aduio(filename):
-    model = whisper.load_model("base")  # tiny, base, small, medium, large
-    result = model.transcribe(filename)
-
-    return result["text"]
-
+IPython.display.Audio(speech_file)
