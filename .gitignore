@@ -1,3 +1,5 @@
+*.wav
+
 # Default ignored files
 /shelf/
 /.idea/workspace.xml
