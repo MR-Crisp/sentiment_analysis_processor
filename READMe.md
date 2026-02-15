@@ -100,13 +100,14 @@ Built a complete production-ready full-stack application with modern architectur
 - Multi-stage Docker builds for optimization
 - Environment-based configuration
 
-### Phase 3: Advanced Features (Future)
+### Phase 3: Advanced Features (In progress)
 
-**Model Enhancements:**
-- Advanced NLP techniques for handling double negatives
-- Sarcasm detection using contextual analysis
-- Improved accuracy with ensemble methods or deep learning
-- Multi-class sentiment (positive, negative, neutral, mixed)
+**Speach sentiment analysis:**
+- Creating a CTC model for speach to text
+- Will connect this to the other model to give users a microphone option
+- This will be reflected in the UI
+- Initially only plain text will be used.
+- Will try and get voice inflection ect added to the original model
 
 
 ## Technologies Used
